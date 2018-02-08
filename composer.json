@@ -1,0 +1,46 @@
+{
+    "name": "egeniq/laravel-rules",
+    "description": "Helper function to simplify defining validation rules of mixed types",
+    "homepage": "https://github.com/egeniq/laravel-rules",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "validation"
+    ],
+    "authors": [
+        {
+            "name": "Richard Tuin",
+            "email": "richard@egeniq.com",
+            "homepage": "https://www.egeniq.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "illuminate/support": "~5.5.0|~5.6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.5.0|~3.6.0",
+        "phpunit/phpunit": "~7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Egeniq\\Laravel\\Rules\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Egeniq\\Laravel\\Rules\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Egeniq\\Laravel\\Rules\\RulesServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
