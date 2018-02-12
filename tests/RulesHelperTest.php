@@ -27,9 +27,14 @@ class RulesHelperTest extends TestCase
     public function testRulesFunctionParsesCorrectly()
     {
         $testRule = new TestRule();
+
+        $testClosure = function($attribute, $value, $fail) {
+            return $fail($attribute.' is invalid.');
+        };
+
         $this->assertEquals(
-            ['required', 'integer', $testRule, 'foobar'],
-            rules('required|integer', $testRule, 'foobar')
+            ['required', 'integer', $testRule, 'foobar', $testClosure],
+            rules('required|integer', $testRule, 'foobar', $testClosure)
         );
     }
 }
