@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Egeniq\Laravel\Rules;
-
 
 use Illuminate\Support\ServiceProvider;
 
