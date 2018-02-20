@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Egeniq\Laravel\Rules\Test;
-
 
 use Illuminate\Validation\Rule;
 use Orchestra\Testbench\TestCase;
@@ -27,9 +25,19 @@ class RulesHelperTest extends TestCase
     public function testRulesFunctionParsesCorrectly()
     {
         $testRule = new TestRule();
+
         $this->assertEquals(
             ['required', 'integer', $testRule, 'foobar'],
             rules('required|integer', $testRule, 'foobar')
         );
+    }
+
+    public function testSupportsClosureRules()
+    {
+        $testClosure = function ($attribute, $value, $fail) {
+            return $fail($attribute.' is invalid.');
+        };
+
+        $this->assertEquals([$testClosure], rules($testClosure));
     }
 }
